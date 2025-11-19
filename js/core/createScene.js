@@ -5,8 +5,7 @@ export default function createScene(options = {}) {
     const {
         id = null,
         background = 0x1a1a1a,
-        fogColor = 0x000000,
-        fogDensity = 0.05,
+        fog = {},
 
         cameraPosition = { x: 0, y: 0, z: 3 },
         fov = 75,
@@ -21,6 +20,12 @@ export default function createScene(options = {}) {
         shadow = true,
         canvasParent = document.body
     } = options;
+
+    const {
+        enable: fogEnable = true,
+        color: fogColor = 0x000000,
+        density: fogDensity = 0.05,
+    } = fog;
 
     const {
         enableDamping = true,
@@ -69,7 +74,9 @@ export default function createScene(options = {}) {
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(background);
-    scene.fog = new THREE.FogExp2(fogColor, fogDensity);
+    if (fogEnable) {
+        scene.fog = new THREE.FogExp2(fogColor, fogDensity);
+    }
 
     const camera = new THREE.PerspectiveCamera(fov, window.innerWidth / window.innerHeight, near, far);
     camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
@@ -113,6 +120,6 @@ export default function createScene(options = {}) {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     })
 
-    return {scene, camera, renderer, controls, canvas}
+    return { scene, camera, renderer, controls, canvas }
 }
 
