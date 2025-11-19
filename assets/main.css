@@ -23,10 +23,10 @@ body {
 .container {
     width: 100%;
     padding: 40px 20px;
-    max-width: 960px;
+    max-width: 1000px;
     margin: auto;
     position: fixed;
-    top: 40px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -37,12 +37,12 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 30px;
 
 }
 
 .navigation a {
-    font-size: 22px;
+    font-size: 20px;
     font-family: monospace;
     color: #4dff91;
     padding: 8px 16px;
@@ -50,7 +50,7 @@ body {
     border-radius: 10px;
 }
 
-.navigation a:hover {
+.navigation a:hover, a.active {
    background-color: #4dff91;
    color: #1d1d1d;
 }
