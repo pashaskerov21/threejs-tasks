@@ -72,7 +72,7 @@ function createStars(count) {
     const stars = new THREE.Points(geometry, material);
     scene.add(stars);
 }
-
+createStars(6000); 
 
 // === SUN (GLTF Model) ===
 function createSun() {
@@ -83,7 +83,6 @@ function createSun() {
         sun.scale.set(0.03, 0.03, 0.03)
 
         scene.add(gltf.scene);
-        createStars(4000); 
 
     });
 }
