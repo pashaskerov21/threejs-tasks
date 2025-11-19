@@ -37,18 +37,27 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
-
+    gap: 10px;
 }
 
 .navigation a {
-    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
     font-family: monospace;
     color: #4dff91;
     padding: 8px 16px;
     border: 1px solid #4dff91;
     border-radius: 10px;
 }
+@media (min-width: 768px){
+    .navigation a{
+        font-size: 18px;
+    }    
+}
+
 
 .navigation a:hover, a.active {
    background-color: #4dff91;
